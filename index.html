@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ivey's Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      src="https://kit.fontawesome.com/30042d3511.js"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="City" id="search-form">
+        <div class="row">
+          <div class="col-7">
+            <input
+              type="search"
+              placeholder="City"
+              id="city-search"
+              autofocus="on"
+              class="form-control border-0 shadow-sm"
+            />
+          </div>
+          <div class="col-2">
+            <input
+              type="submit"
+              value="Search"
+              class="form-control btn btn-outline-Dark"
+            />
+          </div>
+          <div class="col-3">
+            <input
+              type="submit"
+              value="My Location"
+              class="btn btn-outline-info"
+              id="my-location"
+            />
+          </div>
+        </div>
+      </form>
+
+      <div class="currentCity">
+        <div class="card bg-dark text-white">
+          <img src="img/CloudyDay.jpg" class="card-img" height="450" />
+          <div class="card-img-overlay">
+            <h1></h1>
+            <h2></h2>
+            <div class="text-center">
+              <span class="temperature" id="temperature">°</span
+              ><span class="units">
+                  <a href="#" id="fahrenheit-link"> °F</a> |
+                <a href="#" id="celcius-link"> °C</a>
+                </a></span>
+               
+            <div class="col" id = "feels-like">
+            </div>
+        </div>
+      </div>
+        </div>
+      </div>
+   
+     
+
+      <div class="forecast">
+        <div class="card border-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-1">
+                <div class="icon">
+                  <i class="fa-solid fa-umbrella"></i>
+                </div>
+              </div>
+              <div class="col-6">
+                Current -
+              </div>
+              <div class="col" id="description"></div>
+            </div>
+            <div class="row">
+              <div class="col-1">
+                <div class="icon">
+                  <i class="fa-solid fa-droplet"></i>
+                </div>
+              </div>
+              <div class="col-6">
+                Humidity -
+              </div>
+              <span class="col-3" id="humidity"> </span>
+             
+            </div>
+            <div class="row">
+              <div class="col-1">
+                <div class="icon">
+                  <i class="fa-solid fa-wind"></i>
+                </div>
+              </div>
+              <div class="col-6">
+                Wind -
+              </div>
+              <span class="col" id="wind"> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                🌥️
+              </div>
+              <div class="col day">
+                Tuesday
+              </div>
+              <div class="col-2 farenheight">
+                95°F
+              </div>
+              <div class="col-2 celcius">
+                35°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weekone">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                🌥️
+              </div>
+              <div class="col day">
+                Wednesday
+              </div>
+              <div class="col-2 farenheight">
+                85°F
+              </div>
+              <div class="col-2 celcius">
+                29°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weektwo">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                🌧️
+              </div>
+              <div class="col day">
+                Thursday
+              </div>
+              <div class="col-2 farenheight">
+                86°F
+              </div>
+              <div class="col-2 celcius">
+                28°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weekthree">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                ☀️
+              </div>
+              <div class="col day">
+                Friday
+              </div>
+              <div class="col-2 farenheight">
+                83°F
+              </div>
+              <div class="col-2 celcius">
+                28°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weekfour">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                ☀️️
+              </div>
+              <div class="col day">
+                Saturday
+              </div>
+
+              <div class="col-2 farenheight">
+                83°F
+              </div>
+              <div class="col-2 celcius">
+                28°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weekfive">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                🌥️
+              </div>
+              <div class="col day">
+                Sunday
+              </div>
+              <div class="col-2 farenheight">
+                83°F
+              </div>
+              <div class="col-2 celcius">
+                28°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weeksix">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col emoji">
+                🌥️
+              </div>
+              <div class="col day">
+                Monday
+              </div>
+              <div class="col-2 farenheight">
+                83°F
+              </div>
+              <div class="col-2 celcius">
+                28°C
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        <a
+          href="https://www.linkedin.com/in/christen-ivey-a943a4190/"
+          target="blank"
+          class="linkHover"
+          >Coded by Christen Ivey</a
+        >
+      </p>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
