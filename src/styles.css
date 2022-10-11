@@ -61,7 +61,8 @@ body {
     padding-bottom: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-  p {
+  .linkHover {
+    display: block;
     text-align: center;
   }
   .border {
