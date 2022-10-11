@@ -9,7 +9,7 @@ body {
   .container {
     display: block;
     margin: 0 auto;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(255, 244, 244);
     padding: 40px;
     width: 100%;
     height: 60%;
@@ -61,8 +61,10 @@ body {
     padding-bottom: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-  p {
+  .linkHover {
+    display: block;
     text-align: center;
+    padding-bottom: 0%;
   }
   .border {
     border-radius: 10px;
